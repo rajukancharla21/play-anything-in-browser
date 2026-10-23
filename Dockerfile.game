@@ -1,0 +1,5 @@
+# Linux open-source game demo. GTA V itself is not Linux-container compatible here.
+FROM ghcr.io/selkies-project/selkies/desktop:latest-ubuntu26.04
+USER root
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends supertux \
+ && rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloudplay-orchestrator
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - API_TOKEN=${API_TOKEN:-}
+      - SESSION_DATA_DIR=/app/session-data
+      - START_PORT=18080
+      - MAX_SESSIONS=10
+      - SESSION_TTL_SECONDS=3600
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./session-data:/app/session-data
+      - ./static:/app/static
+    networks:
+      - cloudplay-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: cloudplay-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - cloudplay-net
+
+networks:
+  cloudplay-net:
+    driver: bridge
+
+volumes:
+  redis-data:

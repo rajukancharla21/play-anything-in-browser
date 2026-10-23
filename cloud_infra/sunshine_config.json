@@ -1,0 +1,22 @@
+{
+  "channels": 2,
+  "audio_sink": "virtual-audio-cable",
+  "encoder": "nvenc",
+  "nvenc_preset": "p1",
+  "nvenc_tune": "ull",
+  "nvenc_rate_control": "cbr",
+  "qp": 24,
+  "min_threads": 4,
+  "fec_percentage": 5,
+  "packet_size": 1380,
+  "origin_web_ui_allowed": "pc",
+  "port": 47989,
+  "fps": [60, 120],
+  "resolutions": [
+    "1280x720",
+    "1920x1080",
+    "2560x1440"
+  ],
+  "capture": "dxgi",
+  "gamepad": "x360"
+}

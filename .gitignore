@@ -1,0 +1,33 @@
+# Environment & Secrets
+.env
+.env.local
+*.env
+*.pem
+*.key
+service_account.json
+gcp_infra/service_account.json
+*-service-account*.json
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Session & Save Data
+session-data/
+games/
+*.tar.gz
+*.bin
+*.log
+
+# OS & IDE
+.DS_Store
+.idea/
+.vscode/
